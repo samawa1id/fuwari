@@ -1,5 +1,5 @@
 # About Me
-Hi! I’m **Sama**, AKA 0xSky — a cybersecurity student, aspiring penetration tester, and someone who's in deep love with anything tech-related
+Hi! I’m **Sama**, AKA 0xSky — a cybersecurity student, Blue Teamer, and someone who's in deep love with anything tech-related
 
 I mainly focus on:
 
