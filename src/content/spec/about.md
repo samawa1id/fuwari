@@ -1,9 +1,18 @@
-# About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
+# About Me
+Hi! I’m **Sama**, AKA 0xSky — a cybersecurity student, aspiring penetration tester, and someone who's in deep love with anything tech-related
 
-::github{repo="saicaca/fuwari"}
+I mainly focus on:
 
-> ### Sources of images used in this site
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+- **Cybersecurity & CTFs** — especially DFIR and OSINT
+- **Blue Team & Defensive Security** — monitoring, detection, and implementing security controls
+- **Programming** — primarily Python for automation, analysis, and security tooling
+
+I really enjoy documenting what I learn, which is why I started this blog — to share:
+
+- CTF write-ups
+- Notes on defensive strategies and security principles
+- Clear explanations and corrections of common misconceptions
+- Random tech thoughts and experiments
+
+Thanks for passing by — I hope you find something useful, fun, or inspiring here!  
+Feel free to reach out anytime :)
