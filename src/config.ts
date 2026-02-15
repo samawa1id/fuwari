@@ -71,7 +71,7 @@ export const profileConfig: ProfileConfig = {
 		},
 				{
 			name: "X",
-			icon: "fa7-brands:x-twitter",
+			icon: "fa6-brands:x-twitter",
 			url: "https://x.com/ssum1x",
 		},
 		{
