@@ -65,14 +65,14 @@ export const profileConfig: ProfileConfig = {
 			url: "https://t.me/ssumix",
 		},
 		{
-			name: "Discord",
-			icon: "fa6-brands:discord",
-			url: "https://discord.com/users/1391797797946261594",
-		},
-				{
 			name: "X",
 			icon: "fa6-brands:x-twitter",
 			url: "https://x.com/ssum1x",
+		},
+		{
+			name: "Discord",
+			icon: "fa6-brands:discord",
+			url: "https://discord.com/users/1391797797946261594",
 		},
 		{
 			name: "Medium",
