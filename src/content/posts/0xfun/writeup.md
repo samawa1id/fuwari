@@ -9,10 +9,6 @@ author: 0xSky
 draft: false
 ---
 
-This is a write-up for the 0xFun Challenges I managed to solve. During the CTF, I solved 5 Forensics and 2 Miscellaneous challenges.
-
----
-
 ## Ghost: Forensics
 
 **Description:** The interception of a transmission has occurred, with only a network capture remaining. Recover the flag before the trail goes cold. (The challenge was updated with different files during the CTF)
