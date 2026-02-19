@@ -1,6 +1,6 @@
 ---
 title: 0xFun CTF Challenges Write-up
-published: 2026-2-15
+published: 2026-02-15
 pinned: false
 description: A writeup for the 0xFun CTF Challenges I managed to solve
 tags: [DFIR, CTF, Write-up, 0xFun]
