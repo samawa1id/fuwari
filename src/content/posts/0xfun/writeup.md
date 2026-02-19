@@ -8,7 +8,7 @@ category: Write-ups
 author: 0xSky
 draft: false
 ---
-# 0xFun CTF Write-ups
+# 0xFun CTF Challenges Write-up
 
 This is a write-up for the 0xFun Challenges I managed to solve. During the CTF, I solved 5 Forensics and 2 Miscellaneous challenges.
 
