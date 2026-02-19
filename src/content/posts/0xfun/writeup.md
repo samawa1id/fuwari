@@ -19,21 +19,21 @@ This is a write-up for the 0xFun Challenges I managed to solve. During the CTF, 
 **Description:** The interception of a transmission has occurred, with only a network capture remaining. Recover the flag before the trail goes cold. (The challenge was updated with different files during the CTF)
 
 We were given a PNG file `wallpaper.png`, so I made my initial examinations:  
-![Initial Examination](src/content/posts/0xfun/ghost1.png)
+![Initial Examination](./ghost1.png)
 
 I noticed the `Trailer data after PNG IEND chunk` warning in `exiftool`'s output, which indicated that there's either embedded files or steganography. My next step was examining the file for stego:  
-![Stego Detection](src/content/posts/0xfun/ghost2.png)
+![Stego Detection](./ghost2.png)
 
 `zsteg`'s output made it obvious that there's an embedded 7z archive in this image, so I used `binwalk` to extract it:  
-![Binwalk Extraction](src/content/posts/0xfun/ghost3.png)
+![Binwalk Extraction](./ghost3.png)
 
 Then I extracted the archive using 7z, but was asked for a password:  
-![7z Password](src/content/posts/0xfun/ghost4.png)
+![7z Password](./ghost4.png)
 
 I had noticed earlier that the image had this weird text `1n73rc3p7_c0nf1rm3d`, and I kept it noted to be used later. The most logical approach was to try it as the password, and it was correct!
 
 Then I moved to the `/fishwithwater` directory, and the flag was there in a file named `nothing.txt`:  
-![Flag Found](src/content/posts/0xfun/ghost5.png)
+![Flag Found](./ghost5.png)
 
 ---
 
@@ -42,12 +42,12 @@ Then I moved to the `/fishwithwater` directory, and the flag was there in a file
 **Description:** Something crashed. Something was left behind.  
 
 We were given these files:  
-![Kd Files](src/content/posts/0xfun/kd1.png)
+![Kd Files](./kd1.png)
 
 I first examined the `crypter.dmp`, which seemed to be a **Windows MiniDump** file. It contains the application’s memory data at the moment it crashed, as the description indicates.
 
 My first step was checking any text in this file using `strings` and grepping the flag format `0xfun`, which surprisingly showed the flag (unintended solution):  
-![Flag Found via Strings](src/content/posts/0xfun/kd2.png)
+![Flag Found via Strings](./kd2.png)
 
 ---
 
@@ -58,7 +58,7 @@ My first step was checking any text in this file using `strings` and grepping th
 We were given a file named `Tesla.sub`, and since `.sub` files are usually related to Flipper Zero Sub-GHz captures, I initially assumed this would involve analyzing RF data or decoding some captured transmission.
 
 I started with basic inspection:  
-![Tesla Initial Inspection](src/content/posts/0xfun/tesla1.png)
+![Tesla Initial Inspection](./tesla1.png)
 
 It turned out to be ASCII text, which was unusual because real RAW Sub-GHz captures normally contain timing values, not clean binary-looking text. I opened the file and saw:
 
@@ -137,10 +137,10 @@ After running it, the output was clean ASCII and revealed the flag:
 **Description:** None
 
 We were given a PNG file, so I did my initial investigations:  
-![Nothing Expected PNG](src/content/posts/0xfun/nth1.png)
+![Nothing Expected PNG](./nth1.png)
 
 I noticed the `Applicationvndexcalidrawjson` output in the photo's meta-data, which is basically the internal JSON format that [Excalidraw](https://excalidraw.com/) uses to save its drawings. I imported the given photo and got the flag:  
-![Excalidraw Flag](src/content/posts/0xfun/nth2.png)
+![Excalidraw Flag](./nth2.png)
 
 ---
 
@@ -155,15 +155,15 @@ Decoded: 01001101010010000100101001110100010110100011001001110000001101110101011
 ```
 
 I converted this binary into ASCII and noticed that the output was Base64:  
-![Binary to Base64](src/content/posts/0xfun/DTMF1.png)
+![Binary to Base64](./DTMF1.png)
 
 After decoding Base64, I noticed the output was probably shifted characters (the 0 and {} of the flag format were there). I tried all possible Caesar Cipher rotations, but none worked.
-![Encrypted flag](src/content/posts/0xfun/DTMF2.png)
+![Encrypted flag](./DTMF2.png)
 My next option was Vigenère Cipher, but the key was unknown. Instead of brute-forcing, I rechecked the file for hidden text using `exiftool`:  
-![Exiftool Hidden Key](src/content/posts/0xfun/DTMF3.png)
+![Exiftool Hidden Key](./DTMF3.png)
 
 I noticed a weird comment, which I used as a key, and it worked!  
-![Flag Revealed](src/content/posts/0xfun/DTMF4.png)
+![Flag Revealed](./DTMF4.png)
 
 ---
 
