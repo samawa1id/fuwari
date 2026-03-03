@@ -51,7 +51,7 @@ Ok so during my initial investigations in the last challenge I did notice a pass
 I extracted the flag2.txt file from the archive and the flag seemed encrypted:
 `aU5+VVBC8Ilgs16uS1MUj8JPGqL4hvJGpVb5qRtzy9pPgDSe`
 
-And after some _really_ good research and confusion with an AI buddy I figured out it was Base64 encoded RC4 stream cipher that was encrypted with the key we found earlier
+And after some _really_ good research and confusion with an AI buddy I figured out it was a Base64 encoded RC4 stream cipher that was encrypted with the key we found earlier
 
 So yeah I just used [CyberChef](https://gchq.github.io/CyberChef/) to decrypt the flag
 
