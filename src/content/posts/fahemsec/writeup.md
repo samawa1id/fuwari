@@ -16,15 +16,16 @@ Anyways, Let's dive-in!
 ## Case 101 Part. 1: DFIR
 **Description:** No screenshots were saved, something from the last session might still remain on the disk.
 
-After initial investigations for the provided `.csv` files and the provided C dump, I noticed multiple indications of RDP attempts, and confirmed that after checking this path 
-`C\Users\T3M0\AppData\Local\Microsoft\TerminalServerClient\Cache`
-And finding an RDP bmp snippets dump:
+After initial investigations for the provided `.csv` files and the provided C dump, I noticed multiple indications of RDP attempts, and confirmed that after checking this path:
+`C\Users\T3M0\AppData\Local\Microsoft\TerminalServerClient\Cache` 
+
+And finding an RDP BMP snippets dump:
 
 ![screenshot](./case1.png)
 
 I referred back to the challenge's description, this makes sense as this dump contains tiny screenshots of the RDP screen
 
-Then I extracted the bmps put of the bin file
+Then I extracted the BMPs put of the bin file:
 ```shell
 ┌──(ssumix㉿VICTUS)-[/mnt/s/DFIR/CTFs/fahem]
 └─$ bmc-tools -s "Cache0000.bin" -d "output" -b
@@ -35,7 +36,7 @@ Then I extracted the bmps put of the bin file
 [===] Successfully exported collage file.
 ```
 
-Then I checked the output, and found lotsss of tiny sniplets, so to put them together using `RdpCacheStitcher`, and manually rearranged the flag parts to get the final flag
+Then I checked the output, and found lotsss of tiny sniplets, so to put them together I used `RdpCacheStitcher`, and manually rearranged the flag parts to get the final flag
 
 ![screenshot](./case2.png)
 
@@ -43,13 +44,14 @@ Then I checked the output, and found lotsss of tiny sniplets, so to put them tog
 ## Case 101 Part. 2: DFIR
 **Description:** The archive opens, the data does not. What you recover earlier is still relevant.
 
-Ok So during my initial investigations in the last challenge I did notice a password-protected archive and tried to brute-force its password but this didn't work. Thats because the archive's password was in the recovered bmps from the first part:
+Ok so during my initial investigations in the last challenge I did notice a password-protected archive and tried to brute-force its password but this didn't work. Thats because the archive's password was in the recovered bmps from the first part:
 
 ![screenshot](./case3.png)
 
 I extracted the flag2.txt file from the archive and the flag seemed encrypted:
 `aU5+VVBC8Ilgs16uS1MUj8JPGqL4hvJGpVb5qRtzy9pPgDSe`
-and after some _really_ good research and confusing with an AI buddy I figured out it was Base64 encoded RC4 stream cipher that was encrypted with the key we found earlier
+
+And after some _really_ good research and confusion with an AI buddy I figured out it was Base64 encoded RC4 stream cipher that was encrypted with the key we found earlier
 
 So yeah I just used [CyberChef](https://gchq.github.io/CyberChef/) to decrypt the flag
 
@@ -149,18 +151,18 @@ File → Export Objects → HTTP
 
 ---
 ## Decoder: Crypto
-**Description:** Decode this
+
 ![screenshot](./cipher.png)
 
 We were asked to decode this photo, and after some reverse image search I found that this was an alphabet called "Pokémon Go Unknown"
 
 ![screenshot](./cipher2.png)
 
-So I decoded the text according to this alphabet and the final flag was EASYFLAGLEET
+So I decoded the text according to this alphabet and the final flag was `EASYFLAGLEET`
 
 ---
 ## oneROX: Crypto
-**Description:** cipher_hex=63425948170d6b4c4548407e484e561515181a1a1b1f4c4e1a4c48494f494f4e1e1449481a1a484c1a1d1a181518155027 
+
 The chall's name indicates that it's a single-byte XOR challenge, so I just made a quick script that brute-forces the flag:
 
 ``` python
