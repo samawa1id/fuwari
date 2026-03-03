@@ -60,6 +60,7 @@ So yeah I just used [CyberChef](https://gchq.github.io/CyberChef/) to decrypt th
 ---
 ## MyData: DFIR
 **Description:** Can you get the data ?
+
 After opening the pcap in `Wireshark` and filtering for DNS traffic I immediately noticed something suspicious; a high volume of DNS queries to `fahemsec.com`, each with a different short subdomain that looks like a hex string:
 
 ```Sample
@@ -105,7 +106,8 @@ And the final flag was: `FahemSec{DNS_Exfiltration_1s_R3al}`
 
 ---
 ## Plane: DFIR
-**Description: Some protocols are more transparent than they appear.**
+**Description:** Some protocols are more transparent than they appear.
+
 After going through the pcap in `Wireshark`, I noticed alot of failed `GET` requests, with admin credentials in the headers, and it seamed like a brute-force attack. So my first step was to filter for the successful requests by using this filter: `http.response.code == 200`
 
 ![screenshot](./plane1.png)
