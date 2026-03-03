@@ -8,7 +8,7 @@ category: Write-ups
 author: 0xSky
 draft: false
 ---
-In this write-up, I will cover the FahemSec CTF Challenges I managed to solve including DFIR, Crypto, and Miscellaneous challenges. During the CTF, I solved the Network Forensics challenges and had progress in the disk forensics challenges but then went to sleep >-<  I'll still include them in the write-up though
+In this write-up, I will cover the FahemSec CTF Challenges I managed to solve including DFIR, Crypto, and Miscellaneous challenges. During the CTF, I had great progress in the disk forensics challenges but then went to sleep >-<  I'll still include them in the write-up though
 
 Anyways, Let's dive-in!
 
@@ -42,9 +42,9 @@ Then I checked the output, and found lotsss of tiny sniplets, so to put them tog
 
 ---
 ## Case 101 Part. 2: DFIR
-**Description:** The archive opens, the data does not. What you recover earlier is still relevant.
+**Description:** The archive opens, the data does not. What you recovered earlier is still relevant.
 
-Ok so during my initial investigations in the last challenge I did notice a password-protected archive and tried to brute-force its password but this didn't work. Thats because the archive's password was in the recovered bmps from the first part:
+Ok so during my initial investigations in the last challenge I did notice a password-protected archive and tried to brute-force its password but this didn't work. Thats because the archive's password was in the recovered BMPs from the first part:
 
 ![screenshot](./case3.png)
 
