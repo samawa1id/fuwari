@@ -44,7 +44,7 @@ vol -f MemoryDump windows.malfind
 ![](./redline4.png)
 `PAGE_EXECUTE_READWRITE` in the protection field means that the process has all permissions: read, write, and execute, which are needed for the malware to do its job
 
-_Correct answer: PAGE_EXECUTE_READWRITE _
+_Correct answer: PAGE_EXECUTE_READWRITE_
 
 ---
 Q4: What is the name of the process responsible for the VPN connection?
