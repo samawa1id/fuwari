@@ -14,7 +14,7 @@ Lab scenario: As a member of the Security Blue team, your assignment is to analy
 Q1: What is the name of the suspicious process?
 
 I first listed all processes by the `pslist` plugin in Volatility 3:
-```
+```shell
 vol -f MemoryDump windows.pslist
 ```
 And from all processes, one process caught my eye:
@@ -27,7 +27,7 @@ _Correct answer: oneetx.exe_
 Q2: What is the child process name of the suspicious process?
 
 To get the child process name I used the `pstree` plugin to see relations between processes:
-```
+```shell
 vol -f MemoryDump windows.pstree
 ```
 And from `pstree` 's output, it's clear that the child process of the malicious process `oneetx.exe` is `rundll32.exe`:
@@ -38,7 +38,7 @@ _Correct answer: rundll32.exe_
 Q3: What is the memory protection applied to the suspicious process memory region?
 
 Protection method can be found by `malfind` plugin that helps find hidden or injected code/DLLs in user-mode memory, based on characteristics such as VAD tag and page permissions:
-```
+```shell
 vol -f MemoryDump windows.malfind
 ```
 ![](./redline4.png)
@@ -50,7 +50,7 @@ _Correct answer: PAGE_EXECUTE_READWRITE_
 Q4: What is the name of the process responsible for the VPN connection?
 
 To check network connections made by the device, I used the `netscan` plugin:
-```
+```shell
 vol -f MemoryDump windows.netscan
 ```
 And found nothing really interesting in the connections other than some connections made by the malicious file `oneetx.exe`, but after examining the output more carefully, I noticed several suspicious connections: 
