@@ -40,6 +40,7 @@ vol -f MemoryDump windows.malfind
 ```
 ![](./redline4.png)
 `PAGE_EXECUTE_READWRITE` in the protection field means that the process has all permissions: read, write, and execute, which are needed for the malware to do its job
+
 _Correct answer: PAGE_EXECUTE_READWRITE _
 
 ---
@@ -55,12 +56,14 @@ After a bit of research, I found out that they were actually related to VPN serv
 So I looked up its PID in `pstree`'s output to see which process it belonged to:
 ![](./redline7.png)
 And we can clearly see that it is a child process of `Outline.exe`.
+
 _Correct answer: Outline.exe_
 
 ---
 Q5: What is the attacker's IP address?
 If we go back to `netscan` 's output we'll find the attacker's IP in the connection made by the malicious process `oneetx.exe`:
 ![](./redline8.png)
+
 _Correct answer: 77.91.124.20_
 
 ---
@@ -68,6 +71,7 @@ Q6: What is the full URL of the PHP file that the attacker visited?
 I used `strings` on the memory dump and filtered out for php using `grep` but the output was huge, so instead I filtered out the output for the attacker's IP address 
 ![](./redline9.png)
 And the output revealed the full URL visited by the attacker!
+
 _Correct answer: http://77.91.124.20/store/games/index.php_
 
 ---
@@ -75,6 +79,7 @@ Q7: What is the full path of the malicious executable?
 To get the full path of `oneetx.exe` I just used `strings` again on our memory dump and grepped the executable's name:
 ![](./redline10.png)
 Other approaches would be dumping the process, or using the `filescan` plugin to get the file path
+
 _Correct answer: C:\Users\Tammam\AppData\Local\Temp\c3912af058\oneetx.exe_
 
 ---
