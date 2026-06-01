@@ -73,7 +73,7 @@ I used `strings` on the memory dump and filtered out for php using `grep` but th
 ![](./redline9.png)
 And the output revealed the full URL visited by the attacker!
 
-**Answer:** http://77.91.124.20/store/games/index.php
+**Answer:** `http://77.91.124.20/store/games/index.php`
 
 ### Q7: What is the full path of the malicious executable?
 
