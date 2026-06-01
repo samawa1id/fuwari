@@ -59,6 +59,7 @@ We actually noted the answer to this question from the very beginning. The child
 I grepped for the malicious executable's name in the `filescan` output and found three paths:
 ![](./amadey6.png)
 The first path was the primary location of the file, which we had already seen before. The second path was inside the Windows Tasks directory, suggesting a persistence mechanism that would automatically execute the malware at startup or user logon. The third path was located in the Temp directory, which wasn't particularly interesting.
+
 **Answer:** `C:\Windows\System32\Tasks\lssass.exe`
 
 ---
