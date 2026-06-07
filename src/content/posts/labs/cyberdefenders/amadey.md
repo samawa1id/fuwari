@@ -1,5 +1,5 @@
 --- 
-title: Amadey-APT-C-36 Lab Cyberdefenders Lab Writeup 
+title: Amadey-APT-C-36 Cyberdefenders Lab Writeup 
 published: 2026-06-01 
 pinned: false 
 description: A detailed writeup for Amadey-APT-C-36 lab on Cyberdefenders 
