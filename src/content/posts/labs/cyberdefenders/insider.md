@@ -109,4 +109,4 @@ I checked `.bash_history` once again and found several `cd` commands. The last `
 **Answer:** `/root/Documents/myfirsthack/`
 
 ---
-And that was all! Hope you enjoyed reading this writeup <:
+And that was all! Hope you enjoyed reading this writeup :>
