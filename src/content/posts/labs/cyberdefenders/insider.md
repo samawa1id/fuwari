@@ -46,7 +46,7 @@ To identify files created by the user, I checked the `.bash_history` file for an
 
 **Answer:** `/root/Desktop/SuperSecretFile.txt`
 
-## Q5: What program used the file `didyouthinkwedmakeiteasy.jpg` during its execution?
+### Q5: What program used the file `didyouthinkwedmakeiteasy.jpg` during its execution?
 
 I checked `.bash_history` again and searched for any commands referencing `didyouthinkwedmakeiteasy.jpg`. I found the command:
 
@@ -58,7 +58,7 @@ This confirmed that the program used to analyze the file was **binwalk**.
 
 **Answer:** `binwalk`
 
-## Q6: What is the third goal from the checklist Karen created?
+### Q6: What is the third goal from the checklist Karen created?
 
 I checked the `/Desktop` directory, which contained a folder named `mimikatz` and a file named `Checklist`. After viewing the contents of the checklist, I found three listed goals. The third goal was **Profit**.
 
@@ -66,7 +66,7 @@ I checked the `/Desktop` directory, which contained a folder named `mimikatz` an
 
 **Answer:** `Profit`
 
-## Q7: How many times was Apache run?
+### Q7: How many times was Apache run?
 
 I checked the Apache `access.log` file again, and it appeared to be empty. Since there were no logged requests, this indicated that Apache had not been used.
 
@@ -74,7 +74,7 @@ I checked the Apache `access.log` file again, and it appeared to be empty. Since
 
 **Answer:** `0`
 
-## Q8: This machine was used to launch an attack on another. Which file contains the evidence for this?
+### Q8: This machine was used to launch an attack on another. Which file contains the evidence for this?
 
 Ooookay, after looking through the `/root` directory again, I noticed an image with a weird name. After opening it, I saw that it was a screenshot showing malicious commands being executed with administrative privileges, indicating that the machine had been used to perform an attack.
 
@@ -82,7 +82,7 @@ Ooookay, after looking through the `/root` directory again, I noticed an image w
 
 **Answer:** `irZlAohL.jpeg`
 
-## Q9: It is believed that Karen was taunting a fellow computer expert through a bash script within the Documents directory. Who was the expert that Karen was taunting?
+### Q9: It is believed that Karen was taunting a fellow computer expert through a bash script within the Documents directory. Who was the expert that Karen was taunting?
 
 I headed to the `/Documents` directory and checked the contents of the `myfirsthack` folder. I noticed that the `firstscript_fixed` file contained a line directly mentioning someone's name.
 
@@ -90,7 +90,7 @@ I headed to the `/Documents` directory and checked the contents of the `myfirsth
 
 **Answer:** `Young`
 
-## Q10: A user executed the `su` command to gain root access multiple times at 11:26. Who was the user?
+### Q10: A user executed the `su` command to gain root access multiple times at 11:26. Who was the user?
 
 To investigate the execution of the `su` command and privilege escalation attempts, I checked the `auth.log` file under `/var/log`. Since the log was quite large, I focused only on the entries around the `11:26` timestamp.
 
@@ -100,7 +100,7 @@ The log revealed that the user `postgres` executed the `su` command multiple tim
 
 **Answer:** `postgres`
 
-## Q11: Based on the bash history, what is the current working directory?
+### Q11: Based on the bash history, what is the current working directory?
 
 I checked `.bash_history` once again and found several `cd` commands. The last `cd` command is a good indicator of the current working directory, so I used its destination as the answer.
 
