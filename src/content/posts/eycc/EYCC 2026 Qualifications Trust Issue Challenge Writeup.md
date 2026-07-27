@@ -14,8 +14,6 @@ Let's get started!
 
 ---
 
-# First Challenge: Trust Issue
-
 ![](./2.png)
 
 We were given a C folder and two log files, so my first step was to load them in `Autopsy` to start my investigation
