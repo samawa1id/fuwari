@@ -145,7 +145,7 @@ I put together a script that:
 - finds the row matching the `WorkID` I got from `WinSearchDBAnalyzer`
 - for each column in that row, checks if it's a "long value" (out-of-line large data) and if so pulls the _actual_ full content instead of just the truncated stub
 
-```Python
+```python
 #!/usr/bin/env python3
 import argparse
 import sys
@@ -334,7 +334,7 @@ Then I decoded the hex output and decoded it into UTF-16LE to actually read the 
 
 The exact creation time of `St3Y_H3MbLe.txt` can be found in multiple ways, but I chose to parse its `.lnk` file by `LECmd`
 
-```Shell
+```shell
  ./LECmd.exe -f "path\to\St3Y_H3MbLe.txt.lnk" --json out.json
 ```
 
