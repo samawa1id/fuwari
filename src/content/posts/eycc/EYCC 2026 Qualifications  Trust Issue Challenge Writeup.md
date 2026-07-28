@@ -147,352 +147,176 @@ I put together a script that:
 
 ```Python
 #!/usr/bin/env python3
-
 import argparse
-
 import sys
 
-  
-
 try:
-
     import pyesedb
-
 except ImportError:
-
     sys.exit("pyesedb not found. Install with: pip install libesedb-python --break-system-packages")
 
-  
-  
-
 COLUMN_TYPE_NAMES = {
-
     0: "NULL",
-
     1: "BOOLEAN",
-
     2: "INTEGER_8BIT_UNSIGNED",
-
     3: "INTEGER_16BIT_SIGNED",
-
     4: "INTEGER_32BIT_SIGNED",
-
     5: "CURRENCY",
-
     6: "FLOAT_32BIT",
-
     7: "DOUBLE_64BIT",
-
     8: "DATE_TIME",
-
     9: "BINARY_DATA",
-
     10: "TEXT",
-
     11: "LARGE_BINARY_DATA",
-
     12: "LARGE_TEXT",
-
     13: "SUPER_LARGE_VALUE",
-
     14: "INTEGER_32BIT_UNSIGNED",
-
     15: "INTEGER_64BIT_SIGNED",
-
     16: "GUID",
-
     17: "INTEGER_16BIT_UNSIGNED",
-
 }
 
-  
-  
-
 def decode_value(record, col_index, col_type):
-
     """Best-effort decode of a column value to something printable.
 
-  
-
     Returns the raw bytes (not a garbled string) if no encoding produces
-
     genuinely printable text - this matters when a column's contents are
-
     encrypted/obfuscated rather than plain text, since blindly accepting
-
     the first successful UTF-16/UTF-8 decode() call (which rarely raises
-
     UnicodeDecodeError even on arbitrary bytes) hides that fact.
 
-  
-
     Also handles ESE "long values": large column data (e.g. AutoSummary,
-
     file content-ish columns) is stored out-of-line, and get_value_data()
-
     alone only returns a small inline stub/pointer, not the real bytes.
-
     """
-
     try:
-
         if col_type in (2, 3, 4, 14, 15, 17):  # integer types
-
             return record.get_value_data_as_integer(col_index)
 
-  
-
         # Long value (out-of-line large data) - fetch the real payload
-
         try:
-
             if record.is_long_value(col_index):
-
                 long_val = record.get_value_data_as_long_value(col_index)
-
                 if long_val is not None:
-
                     raw = long_val.get_data()
-
                     if raw is None:
-
                         return None
-
                     for enc in ("utf-16-le", "utf-8"):
-
                         try:
-
                             decoded = raw.decode(enc)
-
                             stripped = decoded.rstrip("\x00")
-
                             if stripped and stripped.isprintable():
-
                                 return stripped
-
                         except UnicodeDecodeError:
-
                             continue
-
                     return raw
-
         except AttributeError:
-
             pass  # this pyesedb build doesn't support is_long_value; fall through
 
-  
-
         raw = record.get_value_data(col_index)
-
         if raw is None:
-
             return None
 
-  
-
         for enc in ("utf-16-le", "utf-8"):
-
             try:
-
                 decoded = raw.decode(enc)
-
                 stripped = decoded.rstrip("\x00")
-
                 if stripped and stripped.isprintable():
-
                     return stripped
-
             except UnicodeDecodeError:
-
                 continue
 
-  
-
         return raw  # not genuinely printable text -> hand back raw bytes
-
     except Exception as e:
-
         return f"<error decoding column: {e}>"
 
-  
-  
-
 def find_workid_records(edb_path, target_workid, target_filename=None):
-
     edb_file = pyesedb.file()
-
     edb_file.open(edb_path)
-
-  
 
     print(f"Opened '{edb_path}' - {edb_file.get_number_of_tables()} tables found.\n")
 
-  
-
     matches = []
 
-  
-
     for t_idx in range(edb_file.get_number_of_tables()):
-
         table = edb_file.get_table(t_idx)
-
         table_name = table.get_name()
 
-  
-
         # Find column names/types/indices for this table
-
         columns = [table.get_column(c) for c in range(table.get_number_of_columns())]
-
         col_names = [c.get_name() for c in columns]
-
         col_types = [c.get_type() for c in columns]
-
         col_names_lower = [c.lower() for c in col_names]
 
-  
-
         if "workid" not in col_names_lower:
-
             continue  # this table doesn't track WorkID, skip it
-
-  
 
         workid_col = col_names_lower.index("workid")
 
-  
-
         for r_idx in range(table.get_number_of_records()):
-
             record = table.get_record(r_idx)
-
             try:
-
                 raw_val = record.get_value_data(workid_col)
-
             except Exception:
-
                 continue
-
             if raw_val is None:
-
                 continue
-
             try:
-
                 workid_val = record.get_value_data_as_integer(workid_col)
-
             except Exception:
-
                 continue
-
-  
 
             if workid_val == target_workid:
-
                 row = {}
-
                 for c_idx, c_name in enumerate(col_names):
-
                     row[c_name] = decode_value(record, c_idx, col_types[c_idx])
-
                 matches.append((table_name, row))
 
-  
-
     edb_file.close()
-
     return matches
 
-  
-  
-
 def main():
-
     parser = argparse.ArgumentParser(description=__doc__)
-
     parser.add_argument("edb_path", help="Path to the .edb file (e.g. Windows.edb)")
-
     parser.add_argument("workid", type=int, help="WorkID to search for (e.g. 432)")
-
     parser.add_argument(
-
         "--target-filename",
-
         default=None,
-
         help="Optional filename to verify against, e.g. st3y_h3mble.txt",
-
     )
-
     parser.add_argument(
-
         "--save-content-to",
-
         default=None,
-
         help="Optional path to save extracted text content to a file",
-
     )
-
     args = parser.parse_args()
-
-  
 
     matches = find_workid_records(args.edb_path, args.workid, args.target_filename)
 
-  
-
     if not matches:
-
         print(f"No records found with WorkID={args.workid}.")
-
         return
 
-  
-
     for table_name, row in matches:
-
         print(f"=== Match in table '{table_name}' ===")
-
         for col, val in row.items():
-
             if isinstance(val, bytes):
-
                 display_val = f"<{len(val)} bytes> hex: {val.hex()}"
-
             else:
-
                 display_val = val
-
             print(f"  {col}: {display_val}")
-
         print()
 
-  
-
         if args.save_content_to:
-
             # Heuristic: grab the longest text-like value as "content"
-
             text_candidates = [v for v in row.values() if isinstance(v, str) and len(v) > 20]
-
             if text_candidates:
-
                 content = max(text_candidates, key=len)
-
                 with open(args.save_content_to, "w", encoding="utf-8") as f:
-
                     f.write(content)
-
                 print(f"Saved likely content to {args.save_content_to}")
 
-  
-  
-
 if __name__ == "__main__":
-
     main()
 ```
 
