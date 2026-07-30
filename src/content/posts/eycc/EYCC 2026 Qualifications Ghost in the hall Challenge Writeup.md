@@ -107,7 +107,7 @@ I searched the malicious IP in [VirusTotal](https://www.virustotal.com/gui/home/
 
 ![](./g9.png)
 
-Then after checking the community field I found this comment claiming this IP was flagged as an IOC on [ThreatFox](https://threatfox.abuse.ch/ioc/1755776/)
+Then after checking the Community tab I found this comment claiming this IP was flagged as an IOC on [ThreatFox](https://threatfox.abuse.ch/ioc/1755776/)
 
 ![](./g10.png)
 
