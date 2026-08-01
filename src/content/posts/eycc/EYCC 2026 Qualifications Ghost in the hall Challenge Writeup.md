@@ -145,6 +145,10 @@ That key only exists on machines that actually have the VMware Tools guest addit
 
 **Answer:** `HKLM\SOFTWARE\VMware, Inc.\VMware Tools`
 
+### Final Flag:
+
+![](./g15.png)
+
 ---
 
 And that was all, hope you enjoyed this writeup!! :>
