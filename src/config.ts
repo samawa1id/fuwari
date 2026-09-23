@@ -78,6 +78,11 @@ export const profileConfig: ProfileConfig = {
 			name: "Medium",
 			icon: "fa6-brands:medium",
 			url: "https://medium.com/@ssumix",
+		},
+		{
+			name: "Github",
+			icon: "fa6-brands:github",
+			url: "https://github.com/samawa1id",
 		}
 	],
 };
