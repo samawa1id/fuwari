@@ -75,11 +75,6 @@ export const profileConfig: ProfileConfig = {
 			url: "https://discord.com/users/1391797797946261594",
 		},
 		{
-			name: "Medium",
-			icon: "fa6-brands:medium",
-			url: "https://medium.com/@ssumix",
-		},
-		{
 			name: "Github",
 			icon: "fa6-brands:github",
 			url: "https://github.com/samawa1id",
