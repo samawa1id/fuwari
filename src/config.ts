@@ -58,11 +58,11 @@ export const profileConfig: ProfileConfig = {
 	bio: "DFIR | CTF Player | ENTJ",
 	links: [
 		{
-			name: "Telegram",
-			icon: "fa6-brands:telegram", // Visit https://icones.js.org/ for icon codes
+			name: "Github",
+			icon: "fa6-brands:github", // Visit https://icones.js.org/ for icon codes
 			// You will need to install the corresponding icon set if it's not already included
 			// `pnpm add @iconify-json/<icon-set-name>`
-			url: "https://t.me/ssumix",
+			url: "https://github.com/samawa1id",
 		},
 		{
 			name: "X",
@@ -73,11 +73,6 @@ export const profileConfig: ProfileConfig = {
 			name: "Discord",
 			icon: "fa6-brands:discord",
 			url: "https://discord.com/users/1391797797946261594",
-		},
-		{
-			name: "Github",
-			icon: "fa6-brands:github",
-			url: "https://github.com/samawa1id",
 		}
 	],
 };
