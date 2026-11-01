@@ -12,11 +12,11 @@ export const siteConfig: SiteConfig = {
 	subtitle: "Blog",
 	lang: "en", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
 	themeColor: {
-		hue: 275, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
+		hue: 260, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
 		fixed: false, // Hide the theme color picker for visitors
 	},
 	banner: {
-		enable: true,
+		enable: false,
 		src: "assets/images/banner.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "bottom", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
@@ -53,7 +53,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/icon.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "assets/images/skill_issue.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "0xSky",
 	bio: "DFIR | CTF Player | ENTJ",
 	links: [
