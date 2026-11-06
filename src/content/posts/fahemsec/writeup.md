@@ -63,7 +63,7 @@ So yeah I just used [CyberChef](https://gchq.github.io/CyberChef/) to decrypt th
 
 After opening the pcap in `Wireshark` and filtering for DNS traffic I immediately noticed something suspicious; a high volume of DNS queries to `fahemsec.com`, each with a different short subdomain that looks like a hex string:
 
-```Sample
+```text
 4661.fahemsec.com 
 6865.fahemsec.com 
 6d53.fahemsec.com 
