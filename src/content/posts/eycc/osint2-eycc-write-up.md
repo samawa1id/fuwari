@@ -4,7 +4,7 @@ published: 2025-09-20
 pinned: false
 description: a write-up for EYCC's onsite-round OSINT challenges
 tags: [OSINT, CTF, Write-up, EYCC]
-category: Write-ups
+category: CTFs
 author: 0xSky
 draft: false
 ---
