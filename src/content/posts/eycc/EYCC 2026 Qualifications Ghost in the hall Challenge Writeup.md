@@ -4,7 +4,7 @@ published: 2026-07-30
 pinned: false
 description: A detailed writeup for the Ghost in the hall pcap forensics and threat intelligence challenge
 tags: [EYCC, DFIR, Write-up, PCAP, Threat Intelligence]
-category: Write-ups
+category: CTFs
 author: 0xSky
 draft: false
 ---
