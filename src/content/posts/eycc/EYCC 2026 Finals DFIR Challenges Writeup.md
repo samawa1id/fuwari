@@ -4,7 +4,7 @@ published: 2026-08-16
 pinned: false
 description: A detailed writeup for all DFIR challenges including the memory forensics and disk forensics challenges
 tags: [EYCC, DFIR, Write-up, Memory Forensics, Disk Forensics]
-category: Write-ups
+category: CTFs
 author: 0xSky
 draft: false
 ---
