@@ -4,7 +4,7 @@ published: 2026-07-18
 pinned: false
 description: A detailed writeup for Insider lab on Cyberdefenders
 tags: [DFIR, Disk Forensics, Write-up, labs]
-category: Write-ups
+category: Labs
 author: 0xSky
 draft: false
 ---
