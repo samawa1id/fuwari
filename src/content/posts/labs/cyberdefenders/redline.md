@@ -4,7 +4,7 @@ published: 2026-05-30
 pinned: false
 description: A detailed writeup for RedLine lab on Cyberdefenders
 tags: [DFIR, Memory Forensics, Write-up, labs]
-category: Write-ups
+category: Labs
 author: 0xSky
 draft: false
 ---
