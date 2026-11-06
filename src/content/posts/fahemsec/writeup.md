@@ -4,7 +4,7 @@ published: 2026-02-22
 pinned: false
 description: In this write-up, I will cover the FahemSec CTF Challenges I managed to solve including DFIR, Crypto, and Miscellaneous challenges.
 tags: [DFIR, Misc, Crypto, CTF, Write-up, FahemSec]
-category: Write-ups
+category: CTFs
 author: 0xSky
 draft: false
 ---
