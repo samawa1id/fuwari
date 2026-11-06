@@ -4,7 +4,7 @@ published: 2026-06-01
 pinned: false 
 description: A detailed writeup for Amadey-APT-C-36 lab on Cyberdefenders 
 tags: [DFIR, Memory Forensics, Write-up, labs]
-category: Write-ups 
+category: Labs 
 author: 0xSky 
 draft: false 
 ---
