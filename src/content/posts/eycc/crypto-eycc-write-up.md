@@ -4,7 +4,7 @@ published: 2025-09-07
 pinned: false
 description: a write-up for EYCC's crypto challenges
 tags: [Crypto, CTF, Write-up, EYCC]
-category: Write-ups
+category: CTFs
 author: 0xSky
 draft: false
 ---
