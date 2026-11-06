@@ -4,7 +4,7 @@ published: 2026-07-27
 pinned: false
 description: A detailed writeup for the Trust Issue hard forensics challenge
 tags: [EYCC, DFIR, Write-up, Disk Forensics]
-category: Write-ups
+category: CTFs
 author: 0xSky
 draft: false
 ---
