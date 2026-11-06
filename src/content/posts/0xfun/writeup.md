@@ -4,7 +4,7 @@ published: 2026-02-15
 pinned: false
 description: A writeup for the 0xFun CTF Challenges I managed to solve
 tags: [DFIR, CTF, Write-up, 0xFun]
-category: Write-ups
+category: CTFs
 author: 0xSky
 draft: false
 ---
