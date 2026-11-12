@@ -58,6 +58,11 @@ export const profileConfig: ProfileConfig = {
 	bio: "DFIR | CTF Player | ENTJ",
 	links: [
 		{
+			name: "Linkedin",
+			icon: "fa6-brands:linkedin",
+			url: "https://www.linkedin.com/in/samawalidmekky/",
+		},
+		{
 			name: "Github",
 			icon: "fa6-brands:github", // Visit https://icones.js.org/ for icon codes
 			// You will need to install the corresponding icon set if it's not already included
@@ -73,7 +78,7 @@ export const profileConfig: ProfileConfig = {
 			name: "X",
 			icon: "fa6-brands:x-twitter",
 			url: "https://x.com/ssum1x",
-		}
+		}	
 	],
 };
 
